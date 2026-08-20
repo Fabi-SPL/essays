@@ -1,8 +1,8 @@
-# Findings
+# Essays
 
-Write-ups of things I measured, mostly bugs that were more interesting than they first looked. Each one is here as a PDF and as markdown.
+Write-ups of things I measured, mostly bugs that turned out to be more interesting than they first looked. Each one is here as a PDF and as markdown.
 
-The name is deliberate. These are not opinion pieces. Every one of them ends in a number.
+Every PDF is a single continuous page. Nothing breaks across a page boundary, because there are no page boundaries.
 
 | | Read |
 |---|---|
@@ -24,4 +24,4 @@ Some of these first appeared at [lucidailabs.com](https://lucidailabs.com), whic
 
 CC BY-NC-ND 4.0. Share them, credit me, do not sell them, and do not publish altered versions. See [`LICENSE`](LICENSE).
 
-Fabi · [github.com/Fabi-SPL](https://github.com/Fabi-SPL)
+[Fabi-SPL](https://github.com/Fabi-SPL)
