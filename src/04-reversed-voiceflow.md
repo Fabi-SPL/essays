@@ -37,7 +37,7 @@ The no-gaslighting safeguard surfaced the second problem. The agent has to refus
 A custom Node graph in TypeScript. Each node has first-class access to the full conversational state (ASR confidence, LLM logprobs, intent override table, the history of every prior turn). The four safeguards are cross-cutting middlewares that wrap every node, not blocks the graph author has to remember to wire in. The uncertainty gate is a single function with explicit unit tests; if it does not pass on a given utterance, no node downstream runs, and the call escalates.
 
  
-The graph editor is gone. Briefings are now read documents (not visual canvas walks), which is also why the briefing template lives at [/method](https://lucidailabs.com/method.html) instead of being a Voiceflow screen-share. The demo polish is gone. What came back is the ability to make a safety argument with the code in hand.
+The graph editor is gone. Briefings are now read documents (not visual canvas walks), which is also why the briefing template is a written document instead of a Voiceflow screen-share. The demo polish is gone. What came back is the ability to make a safety argument with the code in hand.
 
 
  
@@ -68,4 +68,4 @@ Low-code is great until you need to express something the low-code platform cann
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-reversed-voiceflow
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

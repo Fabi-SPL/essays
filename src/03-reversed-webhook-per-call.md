@@ -75,4 +75,4 @@ A webhook bus assumes the consumer's uptime is your problem. An append-only log 
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-reversed-webhook
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

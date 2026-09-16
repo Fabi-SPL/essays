@@ -28,13 +28,14 @@ A tool that answers this from a single provider inherits that provider's blind s
 Four providers, queried directly rather than through a wrapper, for one postcode, on one date, for current conditions. Plus DWD radar, the German national weather service's precipitation radar, at roughly 5-minute and 1-kilometre resolution.
 
  
- Measure Result 
- Providers compared 4 
- Location PLZ 93125, Germany 
- Spread in reported current temperature 5.7°C 
- Providers reporting zero precipitation 1 of 4 (MET.no) 
- Radar resolution used instead ~5 min, ~1 km (DWD) 
- Date of benchmark 30 May 2026 
+| Measure | Result |
+|---|---|
+| Providers compared | 4 |
+| Location | PLZ 93125, Germany |
+| Spread in reported current temperature | 5.7°C |
+| Providers reporting zero precipitation | 1 of 4 (MET.no) |
+| Radar resolution used instead | ~5 min, ~1 km (DWD) |
+| Date of benchmark | 30 May 2026 |
  
  
 A 5.7°C spread is not a rounding difference or a units bug. It is the difference between a road surface at 4°C and a road surface at 10°C, which for a motorcycle is the difference between two genuinely different decisions.
@@ -99,4 +100,4 @@ The cheap diagnostic is to query a second source once, by hand, and compare. It 
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-four-weather-apis
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

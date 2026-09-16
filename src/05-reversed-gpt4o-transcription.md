@@ -50,7 +50,7 @@ The numbers measured side by side over a two-week shadow run, same calls replaye
 
  - p95 first-token: 310 ms Whisper vs 1.4 s GPT-4o. The tail is the win.
 
- - Cost: ~2.50 EUR per practice per month in marginal GPU time at this load vs ~16 EUR. The H100 is already paid for by the Lucid workload; voice transcription rides along.
+ - Cost: ~2.50 EUR per practice per month in marginal GPU time at this load vs ~16 EUR. The H100 is already paid for by an unrelated model-training workload; voice transcription rides along.
 
  
 
@@ -59,7 +59,7 @@ The numbers measured side by side over a two-week shadow run, same calls replaye
 ## Why this is not a "self-hosted is always better" essay
 
  
-It is not. The reversal happened because three things lined up: the hardware was already there for unrelated reasons (Lucid's model training), the buyer was a German medical practice for whom data residency is not a feature but a contractual fact, and the call shape is narrow enough that fine-tuning the decoder bias on a glossary actually pays for itself.
+It is not. The reversal happened because three things lined up: the hardware was already there for unrelated reasons (model training for a personal project), the buyer was a German medical practice for whom data residency is not a feature but a contractual fact, and the call shape is narrow enough that fine-tuning the decoder bias on a glossary actually pays for itself.
 
  
 For a US ecommerce chatbot serving English calls under no medical-secrecy regime, GPT-4o transcription is still the right default. The decision is not "which technology is better". It is "which path makes the next twelve conversations easier".
@@ -76,4 +76,4 @@ The standing rule from this reversal: if the same vendor question comes up in th
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-reversed-gpt4o-transcription
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

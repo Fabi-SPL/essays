@@ -37,7 +37,7 @@ The classifier was confident. The classifier was confidently wrong. There is no 
 The architecture in production is not a stack with numbered tiers, even though it is tempting to draw it that way. It is four mechanisms running in parallel on every utterance, each able to force an escalation to a human, none with the option to mute the others. They each catch a different class of mistake. They do not have to agree to fire.
 
 
- Hard triggers: the layer with teeth 
+### Hard triggers: the layer with teeth
  
 A list of medical emergency phrases is matched against the live transcript with regex-level brittleness on purpose. *Brustschmerzen, Atemnot, Bewusstlosigkeit, starke Blutung, Herzinfarkt, Schlaganfall, Krampfanfall*, plus the obvious English equivalents and the obvious typos. When one of these is seen, the agent stops generating, plays a pre-recorded "Bitte legen Sie auf und wählen Sie 112" announcement, and hands over to the practice's emergency number if one is configured. The LLM does not run a single inference on the post-trigger transcript. The escalation is built into the speech pipeline, not into the model.
 
@@ -45,7 +45,7 @@ A list of medical emergency phrases is matched against the live transcript with 
 The trigger list is short and stupid on purpose. A long list with edge cases is a list that argues with itself. A short list with high recall on the cases that kill people is a list that does the job.
 
 
- The confidence threshold itself 
+### The confidence threshold itself
  
 The LLM that handles conversation returns log-probabilities for its top sampled token. Cumulative confidence over the response is normalised to a [0, 1] score. Default threshold: **0.75**. Below that, the agent hands the call to a human, with the transcript displayed and the inferred intent labelled *as a suggestion, not a decision*.
 
@@ -53,7 +53,7 @@ The LLM that handles conversation returns log-probabilities for its top sampled 
 The threshold is configurable per clinic. Pediatric practices typically push it to 0.85 because the cost of the wrong handoff is asymmetric: a parent calling about a child with a fever is not the right person to wait through three minutes of an agent that wasn't sure. A high-volume cosmetic clinic might run it at 0.65; the failure cost of an over-eager handoff is just a slightly annoyed booking consultant.
 
 
- A separate intent kill-switch 
+### A separate intent kill-switch
  
 Running in parallel to the main conversation model is a small intent classifier whose only job is to detect three things: *diagnosis-seeking, triage-seeking, treatment-recommendation-seeking*. Not "what does the caller want". Not "should this get booked". Specifically, "is this caller asking the agent to do something a doctor should do".
 
@@ -61,7 +61,7 @@ Running in parallel to the main conversation model is a small intent classifier 
 If the soft classifier returns confidence &ge; 0.7 on any of the three categories, the main model's medical-content response is suppressed at the generation layer and the call escalates. The caller might not even hear the half-finished response. The soft classifier is the kill switch for the conversation model's tendency to be helpful in ways that are illegal under the AI Act and the Heilkundevorbehalt of § 1 HeilprG.
 
 
- The system prompt as the polite floor 
+### The system prompt as the polite floor
  
 The conversation model itself runs with a system prompt that explicitly forbids diagnosis, triage, treatment advice, dosing information, drug interaction commentary, and any kind of medical opinion. It is instructed to repeat the identical phrase *"Diese Frage kann ich nicht beantworten. Ich verbinde Sie jetzt mit der Praxis."* when it detects that it has been asked one. Anti-hallucination guardrails prevent it from filling silence with confident-sounding medical content.
 
@@ -109,8 +109,8 @@ The metric that matters less than people think: *"AI deflection rate"*. The metr
 Intent classifiers route to a handler. Hand-off architectures route to a human. For a medical phone line, what you want is "route to a human when in doubt". Confidence thresholds combined with hard triggers and a soft kill-switch classifier give you that. Intent classification by itself does not.
 
  
-The customer-facing version of this lives on [/safeguards](https://lucidailabs.com/safeguards), and the contractual version lives in [/avv § 10.4](https://lucidailabs.com/avv). This essay is the engineering version: what one engineer would tell another who is about to build the wrong thing for the right reason.
+There is a customer-facing version of this and a contractual version (AVV § 10.4). This essay is the engineering version: what one engineer would tell another who is about to build the wrong thing for the right reason.
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-confidence-thresholds
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

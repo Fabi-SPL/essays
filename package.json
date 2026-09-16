@@ -1,0 +1,7 @@
+{
+  "name": "essays",
+  "private": true,
+  "type": "module",
+  "scripts": { "pdf": "node tools/build-pdf.mjs" },
+  "devDependencies": { "marked": "^15.0.0", "puppeteer": "^24.0.0" }
+}

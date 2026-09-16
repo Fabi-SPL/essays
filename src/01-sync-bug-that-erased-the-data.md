@@ -70,14 +70,15 @@ This matters more than it looks. Every quality check on that table had been writ
 ## What the numbers looked like
 
  
- Measure Value 
- Backfill records rejected 99.3% 
- Strap buffer depth ~72 hours 
- App accept window Minutes 
- Auto-erase trigger `out_of_range` ≥ 100, always true 
- Records rejected then acknowledged, single session 160 
- Backfilled rows with HR &lt; 20 bpm 88% 
- Errors shown to the user across all of it 0 
+| Measure | Value |
+|---|---|
+| Backfill records rejected | 99.3% |
+| Strap buffer depth | ~72 hours |
+| App accept window | Minutes |
+| Auto-erase trigger | `out_of_range` ≥ 100, always true |
+| Records rejected then acknowledged, single session | 160 |
+| Backfilled rows with HR < 20 bpm | 88% |
+| Errors shown to the user across all of it | 0 |
  
 
  
@@ -131,4 +132,4 @@ A silent failure that runs long enough stops being a bug and becomes the system'
 
 ---
 
-(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Originally published at https://lucidailabs.com/essays-ble-silent-data-loss
+(c) 2026 Fabian Ilg. Licensed CC BY-NC-ND 4.0. Canonical copy: https://github.com/Fabi-SPL/essays

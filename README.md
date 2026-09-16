@@ -18,7 +18,7 @@ Every PDF is a single continuous page. Nothing breaks across a page boundary, be
 
 The code behind several of these lives in my other repositories. [remote-desktop](https://github.com/Fabi-SPL/remote-desktop) holds the pacer that got deleted, [whoop-ble-swift](https://github.com/Fabi-SPL/whoop-ble-swift) the BLE protocol work, [argus](https://github.com/Fabi-SPL/argus) the vendor-API layer.
 
-Some of these first appeared at [lucidailabs.com](https://lucidailabs.com), which is where I do client work. Each PDF carries its original publication link.
+Some of these first appeared on my studio site, [keled.de](https://keled.de). The canonical copies live here.
 
 ## License
 
