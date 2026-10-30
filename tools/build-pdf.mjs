@@ -61,7 +61,7 @@ try {
   for (const f of files) {
     const { title, dek, meta, body, foot } = split(fs.readFileSync(path.join(root, 'src', f), 'utf8'))
     const dekHtml = dek.replace(/^(.*?[.!?])(?=\s|$)/, '<strong>$1</strong>')
-    const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body>
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${title.replace(/[*_`]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;')}</title><style>${css}</style></head><body>
       <div class="top"><span>Fabi-SPL</span><span>Essays</span></div>
       <h1>${marked.parseInline(title)}</h1>
       <p class="dek">${dekHtml}</p>
