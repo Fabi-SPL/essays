@@ -4,7 +4,7 @@
 
 *28 May 2026 · 7 min read*
 
-The first three Lina pilots shipped on the GPT-4o transcription API. It was the obvious default in late 2025. Three months in it came out, replaced by Whisper large-v3 on the Hetzner GPU box. Here is what actually broke, what the numbers looked like, and why "obvious default" lost.
+The first three voice agent pilots shipped on the GPT-4o transcription API. It was the obvious default in late 2025. Three months in it came out, replaced by Whisper large-v3 on the Hetzner GPU box. Here is what actually broke, what the numbers looked like, and why "obvious default" lost.
 
 
  

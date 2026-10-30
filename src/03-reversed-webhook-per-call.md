@@ -4,7 +4,7 @@
 
 *28 May 2026 · 6 min read*
 
-The first version of Lina fanned out one webhook per call event: call started, call ended, escalation, transcription chunk, intent confidence drop, every one a separate HTTP request to the practice's downstream system. On day 28 of pilot two, the 8 to 10 am peak collapsed it. Here is what the failure looked like and what ships now.
+The first version of the voice agent fanned out one webhook per call event: call started, call ended, escalation, transcription chunk, intent confidence drop, every one a separate HTTP request to the practice's downstream system. On day 28 of pilot two, the 8 to 10 am peak collapsed it. Here is what the failure looked like and what ships now.
 
 
  

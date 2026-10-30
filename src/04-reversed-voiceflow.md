@@ -4,14 +4,14 @@
 
 *28 May 2026 · 7 min read*
 
-The first Lina prototypes ran on Voiceflow. It was the right call for client demos. It was the wrong call for the uncertainty gate, which is the thing that actually keeps the agent from booking a chest-pain caller for next Tuesday. Here is the point at which the platform stopped fitting and what runs now.
+The first voice agent prototypes ran on Voiceflow. It was the right call for client demos. It was the wrong call for the uncertainty gate, which is the thing that actually keeps the agent from booking a chest-pain caller for next Tuesday. Here is the point at which the platform stopped fitting and what runs now.
 
 
  
 ## What shipped first
 
  
-Voiceflow as the backbone for the first three pilot bots. Intent blocks for routing, knowledge base blocks for clinic-specific FAQs, function blocks for external calls into the Lina backend, and the live transcript piped into the Voiceflow runtime via a custom carrier. The visual editor was a real win in client conversations: when the practice owner could see the flow, the onboarding briefing took twenty minutes instead of two hours. Three demos closed off the back of a screen share with the canvas open.
+Voiceflow as the backbone for the first three pilot bots. Intent blocks for routing, knowledge base blocks for clinic-specific FAQs, function blocks for external calls into the agent's own backend, and the live transcript piped into the Voiceflow runtime via a custom carrier. The visual editor was a real win in client conversations: when the practice owner could see the flow, the onboarding briefing took twenty minutes instead of two hours. Three demos closed off the back of a screen share with the canvas open.
 
  
 For the first six weeks of pilot one this was a fine choice. It would probably still be a fine choice for a clinic that wants a chatbot to answer opening hours and clinic address questions.
@@ -21,7 +21,7 @@ For the first six weeks of pilot one this was a fine choice. It would probably s
 ## The signal that forced the reversal
 
  
-The Lina safeguard contract has four things in it: human handoff always one click away, uncertainty gate at 0.75 confidence, no-gaslighting (the agent never offers help it cannot deliver), transparency (caller knows it is an agent, full conversation logged). The first three of these became hard to express in Voiceflow blocks at roughly the same time.
+The voice agent's safeguard contract has four things in it: human handoff always one click away, uncertainty gate at 0.75 confidence, no-gaslighting (the agent never offers help it cannot deliver), transparency (caller knows it is an agent, full conversation logged). The first three of these became hard to express in Voiceflow blocks at roughly the same time.
 
  
 The uncertainty gate was the one that ended it. The 0.75 threshold is not a single number applied to a single signal; it is a derived value across ASR confidence, LLM logprob on the chosen response, semantic similarity of the response to the question, and a per-intent override (medical-triage utterances escalate at 0.92, not 0.75). Voiceflow exposed intent confidence and that was about it. To get the LLM logprob into a block-graph decision the work had to happen in a function block, then thread the value through session variables, then get checked again in a separate function block before the response was committed. The graph started to look like spaghetti within two pilots.
